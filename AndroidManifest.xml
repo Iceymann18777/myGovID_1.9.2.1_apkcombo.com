@@ -1,0 +1,687 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:versionCode="1090201"
+    android:versionName="1.9.2.1"
+    android:compileSdkVersion="29"
+    android:compileSdkVersionCodename="10"
+    package="au.gov.ato.mygovid.droid"
+    platformBuildVersionCode="29"
+    platformBuildVersionName="10">
+
+    <uses-sdk
+        android:minSdkVersion="24"
+        android:targetSdkVersion="29" />
+
+    <supports-screens
+        android:normalScreens="true"
+        android:largeScreens="true" />
+
+    <uses-permission
+        android:name="android.permission.INTERNET" />
+
+    <uses-permission
+        android:name="android.permission.ACCESS_WIFI_STATE" />
+
+    <uses-permission
+        android:name="android.permission.USE_FINGERPRINT" />
+
+    <uses-permission
+        android:name="android.permission.USE_BIOMETRIC" />
+
+    <uses-permission
+        android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <uses-permission
+        android:name="android.permission.WAKE_LOCK" />
+
+    <uses-permission
+        android:name="com.google.android.c2dm.permission.RECEIVE" />
+
+    <permission
+        android:name="au.gov.ato.mygovid.droid.permission.C2D_MESSAGE"
+        android:protectionLevel="0x2" />
+
+    <uses-permission
+        android:name="au.gov.ato.mygovid.droid.permission.C2D_MESSAGE" />
+
+    <uses-permission
+        android:name="android.permission.CAMERA" />
+
+    <uses-permission
+        android:name="android.permission.VIBRATE" />
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
+
+    <uses-feature
+        android:name="android.hardware.camera.autofocus"
+        android:required="false" />
+
+    <uses-feature
+        android:name="android.hardware.camera.front"
+        android:required="true" />
+
+    <uses-feature
+        android:name="android.hardware.camera.front.autofocus"
+        android:required="false" />
+
+    <uses-feature
+        android:glEsVersion="0x20000"
+        android:required="true" />
+
+    <application
+        android:theme="@ref/0x7f12034d"
+        android:label="myGovID"
+        android:icon="@ref/0x7f0e0004"
+        android:name="crc6492e0ce12b0d7222a.MyGovIDApplication"
+        android:allowBackup="false"
+        android:hardwareAccelerated="true"
+        android:largeHeap="true"
+        android:supportsRtl="false"
+        android:extractNativeLibs="true"
+        android:roundIcon="@ref/0x7f0e0005"
+        android:appComponentFactory="androidx.core.app.CoreComponentFactory">
+
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@ref/0x7f0e0002" />
+
+        <receiver
+            android:name="com.google.firebase.iid.FirebaseInstanceIdInternalReceiver"
+            android:exported="false" />
+
+        <receiver
+            android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"
+            android:permission="com.google.android.c2dm.permission.SEND"
+            android:exported="true">
+
+            <intent-filter>
+
+                <action
+                    android:name="com.google.android.c2dm.intent.RECEIVE" />
+
+                <action
+                    android:name="com.google.android.c2dm.intent.REGISTRATION" />
+
+                <category
+                    android:name="au.gov.ato.mygovid.droid" />
+            </intent-filter>
+
+            <intent-filter>
+
+                <action
+                    android:name="com.google.android.c2dm.intent.RECEIVE" />
+
+                <category
+                    android:name="au.gov.ato.mygovid.droid" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name="crc64765df87e993f4a23.FirebaseIIDService">
+
+            <intent-filter>
+
+                <action
+                    android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service>
+
+        <activity
+            android:theme="@ref/0x7f12034d"
+            android:label="myGovID"
+            android:name="crc649e2350e474846bbb.AlertComponentActivity"
+            android:screenOrientation="1" />
+
+        <activity
+            android:theme="@ref/0x7f120347"
+            android:label="myGovID"
+            android:name="crc6458d935322d81047b.FacialVerificationIntroActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x2" />
+
+        <activity
+            android:theme="@ref/0x7f12034b"
+            android:label="myGovID"
+            android:name="crc6458d935322d81047b.FacialVerificationCaptureLivenessActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x2" />
+
+        <activity
+            android:theme="@ref/0x7f120347"
+            android:label="myGovID"
+            android:name="crc6458d935322d81047b.FacialVerificationReviewPhotoActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x2" />
+
+        <activity
+            android:theme="@ref/0x7f120347"
+            android:label="CaptureUpdateEmailActivity"
+            android:name="crc64fbf8669b6cba869a.CaptureUpdateEmailActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x2" />
+
+        <activity
+            android:theme="@ref/0x7f120347"
+            android:label="CaptureVerifyUpdateEmailActivity"
+            android:name="crc64fbf8669b6cba869a.CaptureVerifyUpdateEmailActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x2" />
+
+        <activity
+            android:theme="@ref/0x7f120347"
+            android:label="myGovID"
+            android:name="crc6427de04674d710264.CaptureCitizenshipCertificateDetailsManuallyActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x2" />
+
+        <activity
+            android:theme="@ref/0x7f120347"
+            android:label="BlankViewActivity"
+            android:name="crc64e2cc98d6c6fa0cec.BlankViewActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x2" />
+
+        <activity
+            android:theme="@ref/0x7f120347"
+            android:label="myGovID"
+            android:name="crc64363ca7bd9d1c05eb.CaptureAustralainVisaDetailsManuallyActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x2" />
+
+        <activity
+            android:theme="@ref/0x7f120347"
+            android:label="myGovID"
+            android:name="crc642a1f10a40e71b82b.CaptureImmiCardDetailsActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x2" />
+
+        <activity
+            android:theme="@ref/0x7f120347"
+            android:label="myGovID"
+            android:name="crc64976ed838c4970e83.CaptureMarriageCertificateDetailsActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x2" />
+
+        <activity
+            android:theme="@ref/0x7f120347"
+            android:label="myGovID"
+            android:name="crc642b4555a33dfe3186.LinkingDocumentActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x2" />
+
+        <activity
+            android:theme="@ref/0x7f120347"
+            android:label="myGovID"
+            android:name="crc641571c733cd79eb35.ChangeOfNameCertificateActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x2" />
+
+        <activity
+            android:theme="@ref/0x7f120347"
+            android:label="myGovID"
+            android:name="crc6428aea645502c4ec0.CaptureBirthCertificateDetailsActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x2" />
+
+        <activity
+            android:theme="@ref/0x7f12034d"
+            android:label="myGovID"
+            android:name="crc64d795c49ff98a45dc.OCRResultActivity"
+            android:screenOrientation="1" />
+
+        <activity
+            android:theme="@ref/0x7f120347"
+            android:label="myGovID"
+            android:name="crc64d795c49ff98a45dc.DriverLicenceMockOCRActivity"
+            android:screenOrientation="1" />
+
+        <activity
+            android:theme="@ref/0x7f120347"
+            android:label="myGovID"
+            android:name="crc64d795c49ff98a45dc.MedicareMockOCRActivity"
+            android:screenOrientation="1" />
+
+        <activity
+            android:theme="@ref/0x7f120347"
+            android:label="myGovID"
+            android:name="crc64d795c49ff98a45dc.PassportMockOCRActivity"
+            android:screenOrientation="1" />
+
+        <activity
+            android:theme="@ref/0x7f12034d"
+            android:label="myGovID"
+            android:name="crc6493315ec74a7a159f.LauncherStepActivity"
+            android:screenOrientation="1" />
+
+        <activity
+            android:theme="@ref/0x7f12034d"
+            android:label="myGovID"
+            android:name="au.gov.ato.myGovID.LaunchActivity"
+            android:screenOrientation="1">
+
+            <intent-filter>
+
+                <action
+                    android:name="android.intent.action.MAIN" />
+
+                <category
+                    android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:theme="@ref/0x7f120347"
+            android:label="myGovID"
+            android:name="crc64533d37b4480d389f.ChangePasswordActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x2" />
+
+        <activity
+            android:theme="@ref/0x7f120347"
+            android:label="myGovID"
+            android:name="crc64cdf70d0188f883a6.AccountDetailsActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x2" />
+
+        <activity
+            android:theme="@ref/0x7f120348"
+            android:label="myGovID"
+            android:name="crc6413e4f2530911395f.AuthRequestActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x2" />
+
+        <activity
+            android:theme="@ref/0x7f120347"
+            android:label="myGovID"
+            android:name="crc6484dfda41c2e30574.TutorialActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x2" />
+
+        <activity
+            android:theme="@ref/0x7f120347"
+            android:label="myGovID"
+            android:name="crc64b9943384fdd58ff3.AboutActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x2" />
+
+        <activity
+            android:theme="@ref/0x7f120347"
+            android:label="myGovID"
+            android:name="crc643813e35036aea5aa.DriverLicenceIntroActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x2" />
+
+        <activity
+            android:theme="@ref/0x7f120347"
+            android:label="myGovID"
+            android:name="crc643813e35036aea5aa.CaptureDriverLicenceDetailsActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x2" />
+
+        <activity
+            android:theme="@ref/0x7f120347"
+            android:label="myGovID"
+            android:name="crc643813e35036aea5aa.OCRDriverLicenceDetailsActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x2" />
+
+        <activity
+            android:theme="@ref/0x7f120347"
+            android:label="myGovID"
+            android:name="crc643813e35036aea5aa.MockDriverLicenceIntroActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x2" />
+
+        <activity
+            android:theme="@ref/0x7f120347"
+            android:label="myGovID"
+            android:name="crc643813e35036aea5aa.OCRReviewDriverLicenceActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x2" />
+
+        <activity
+            android:theme="@ref/0x7f120347"
+            android:label="myGovID"
+            android:name="crc645816766d80bc44ae.MedicareOCRIntroActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x2" />
+
+        <activity
+            android:theme="@ref/0x7f120347"
+            android:label="myGovID"
+            android:name="crc645816766d80bc44ae.CaptureMedicareCardDetailsActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x2" />
+
+        <activity
+            android:theme="@ref/0x7f120347"
+            android:label="myGovID"
+            android:name="crc645816766d80bc44ae.OCRMedicareCardDetailsActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x2" />
+
+        <activity
+            android:theme="@ref/0x7f120347"
+            android:label="myGovID"
+            android:name="crc645816766d80bc44ae.MockMedicareOCRIntroActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x2" />
+
+        <activity
+            android:theme="@ref/0x7f120347"
+            android:label="myGovID"
+            android:name="crc645816766d80bc44ae.OCRReviewMedicareActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x2" />
+
+        <activity
+            android:theme="@ref/0x7f120347"
+            android:label="myGovID"
+            android:name="crc649640b2289c74cba3.PassportOCRIntroActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x2" />
+
+        <activity
+            android:theme="@ref/0x7f120347"
+            android:label="myGovID"
+            android:name="crc649640b2289c74cba3.CapturePassportDetailsActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x2" />
+
+        <activity
+            android:theme="@ref/0x7f120347"
+            android:label="myGovID"
+            android:name="crc649640b2289c74cba3.OCRPassportDetailsActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x2" />
+
+        <activity
+            android:theme="@ref/0x7f120347"
+            android:label="myGovID"
+            android:name="crc649640b2289c74cba3.MockPassportOCRIntroActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x2" />
+
+        <activity
+            android:theme="@ref/0x7f120347"
+            android:label="myGovID"
+            android:name="crc649640b2289c74cba3.OCRReviewPassportActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x2" />
+
+        <activity
+            android:theme="@ref/0x7f120347"
+            android:label="myGovID"
+            android:name="crc6476e343b388e27a95.SettingsActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x2" />
+
+        <activity
+            android:theme="@ref/0x7f12034a"
+            android:label="myGovID"
+            android:name="crc64dd3a590d8a7ff145.AuthenticateActivity"
+            android:screenOrientation="1"
+            android:configChanges="0x40000000"
+            android:windowSoftInputMode="0x2" />
+
+        <activity
+            android:theme="@ref/0x7f12034a"
+            android:label="myGovID"
+            android:name="crc64dd3a590d8a7ff145.LoginActivity"
+            android:screenOrientation="1"
+            android:configChanges="0x40000000"
+            android:windowSoftInputMode="0x2" />
+
+        <activity
+            android:theme="@ref/0x7f12034a"
+            android:label="myGovID"
+            android:name="crc64f12d1da4580c8d39.AccountSetupActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x2" />
+
+        <activity
+            android:theme="@ref/0x7f12034b"
+            android:label="myGovID"
+            android:name="crc642ed75bce4b030744.DeadEndActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x2" />
+
+        <activity
+            android:theme="@ref/0x7f12034b"
+            android:label="myGovID"
+            android:name="crc64dad833ce0d3fd673.VerifyEmailActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x2" />
+
+        <activity
+            android:theme="@ref/0x7f12034b"
+            android:label="myGovID"
+            android:name="crc647426840942fc4193.TermsAndConditionsActivity"
+            android:screenOrientation="1" />
+
+        <activity
+            android:theme="@ref/0x7f12034b"
+            android:label="myGovID"
+            android:name="crc64d69333af61a5b1e9.SecureAccountActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x2" />
+
+        <activity
+            android:theme="@ref/0x7f120349"
+            android:label="myGovID"
+            android:name="crc64c30fb06df882ea91.DashboardActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x33" />
+
+        <activity
+            android:theme="@ref/0x7f12034b"
+            android:label="myGovID"
+            android:name="crc643eb4d80e43d51306.CapturePersonalDetailsActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x2" />
+
+        <activity
+            android:theme="@ref/0x7f12034b"
+            android:label="myGovID"
+            android:name="crc64a33e7b98786ef28e.CapturePasswordActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x2" />
+
+        <activity
+            android:theme="@ref/0x7f12034b"
+            android:label="myGovID"
+            android:name="crc64a33e7b98786ef28e.CapturePasswordWithBiometricActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x2" />
+
+        <activity
+            android:theme="@ref/0x7f12034b"
+            android:label="myGovID"
+            android:name="crc64bb44dab70d84cf9b.CaptureEmailActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x2" />
+
+        <activity
+            android:label="HelpOverlayActivity"
+            android:name="crc640d0362f9a5e515fa.HelpOverlayActivity" />
+
+        <activity
+            android:theme="@ref/0x7f12034c"
+            android:label="myGovID"
+            android:name="crc6464c130926b6efe38.OnBoardingActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x2" />
+
+        <receiver
+            android:label="Essentials Connectivity Broadcast Receiver"
+            android:name="crc64a0e0a82d0db9a07d.ConnectivityBroadcastReceiver"
+            android:enabled="true"
+            android:exported="false" />
+
+        <provider
+            android:name="mono.android.MultiDexLoader"
+            android:exported="false"
+            android:authorities="au.gov.ato.mygovid.droid.mono.android.MultiDexLoader.__mono_init__"
+            android:initOrder="1999999999" />
+
+        <provider
+            android:name="mono.MonoRuntimeProvider"
+            android:exported="false"
+            android:authorities="au.gov.ato.mygovid.droid.mono.MonoRuntimeProvider.__mono_init__"
+            android:initOrder="1999999998" />
+
+        <service
+            android:name="com.google.firebase.iid.FirebaseInstanceIdService"
+            android:exported="true">
+
+            <intent-filter
+                android:priority="-500">
+
+                <action
+                    android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service>
+
+        <provider
+            android:name="com.google.firebase.provider.FirebaseInitProvider"
+            android:exported="false"
+            android:authorities="au.gov.ato.mygovid.droid.firebaseinitprovider"
+            android:initOrder="100" />
+
+        <service
+            android:name="com.google.firebase.messaging.FirebaseMessagingService"
+            android:exported="true">
+
+            <intent-filter
+                android:priority="-500">
+
+                <action
+                    android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <activity
+            android:theme="@ref/0x7f120346"
+            android:name="com.iproov.sdk.ui.activity.IProovPortraitActivity"
+            android:screenOrientation="1"
+            android:configChanges="0x404"
+            android:keepScreenOn="true"
+            android:hardwareAccelerated="true" />
+
+        <activity
+            android:theme="@ref/0x7f120346"
+            android:name="com.iproov.sdk.ui.activity.IProovLandscapeActivity"
+            android:screenOrientation="0"
+            android:configChanges="0x404"
+            android:keepScreenOn="true"
+            android:hardwareAccelerated="true" />
+
+        <activity
+            android:theme="@ref/0x7f120346"
+            android:name="com.iproov.sdk.ui.activity.IProovReversePortraitActivity"
+            android:screenOrientation="9"
+            android:configChanges="0x404"
+            android:keepScreenOn="true"
+            android:hardwareAccelerated="true" />
+
+        <activity
+            android:theme="@ref/0x7f120346"
+            android:name="com.iproov.sdk.ui.activity.IProovReverseLandscapeActivity"
+            android:screenOrientation="8"
+            android:configChanges="0x404"
+            android:keepScreenOn="true"
+            android:hardwareAccelerated="true" />
+
+        <activity
+            android:theme="@ref/0x7f12010e"
+            android:name="androidx.biometric.DeviceCredentialHandlerActivity"
+            android:exported="true" />
+
+        <activity
+            android:theme="@ref/0x01030010"
+            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+            android:exported="false" />
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@ref/0x7f0b0008" />
+
+        <provider
+            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
+            android:exported="false"
+            android:multiprocess="true"
+            android:authorities="au.gov.ato.mygovid.droid.lifecycle-process" />
+
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
+
+        <activity
+            android:theme="@ref/0x01030007"
+            android:name="com.ocrlabs.orbit.mrz.ScanActivity"
+            android:screenOrientation="1"
+            android:configChanges="0x5a0" />
+
+        <activity
+            android:name="com.ocrlabs.orbit.mrz.SettingActivity"
+            android:screenOrientation="1" />
+
+        <activity
+            android:name="com.ocrlabs.orbit.mrz.PreviewActivity"
+            android:screenOrientation="1" />
+
+        <activity
+            android:name="com.ocrlabs.orbit.mrz.ResultActivity"
+            android:screenOrientation="1" />
+
+        <meta-data
+            android:name="android.max_aspect"
+            android:value="1074161280.000000" />
+
+        <activity
+            android:theme="@ref/0x01030007"
+            android:label="scanView"
+            android:name="com.ocrlabs.orbitmedicare.CaptureCardActivity"
+            android:screenOrientation="1"
+            android:configChanges="0x5a0" />
+
+        <activity
+            android:theme="@ref/0x01030007"
+            android:label="settingView"
+            android:name="com.ocrlabs.orbitmedicare.CaptureSettingActivity"
+            android:screenOrientation="1"
+            android:configChanges="0x5a0" />
+
+        <activity
+            android:theme="@ref/0x01030007"
+            android:label="mainView"
+            android:name="com.ocrlabs.orbitmedicare.CaptureMainActivity"
+            android:screenOrientation="1"
+            android:configChanges="0x5a0"
+            android:resizeableActivity="true" />
+
+        <activity
+            android:theme="@ref/0x01030007"
+            android:label="scanView"
+            android:name="com.ocrlabs.orbitsdk.CaptureCardActivity"
+            android:screenOrientation="1"
+            android:configChanges="0x5a0" />
+
+        <activity
+            android:theme="@ref/0x01030007"
+            android:name="com.ocrlabs.orbitsdk.CaptureSettingActivity"
+            android:screenOrientation="1"
+            android:configChanges="0x5a0" />
+
+        <activity
+            android:theme="@ref/0x01030007"
+            android:label="mainView"
+            android:name="com.ocrlabs.orbitsdk.CaptureMainActivity"
+            android:screenOrientation="1"
+            android:configChanges="0x5a0"
+            android:resizeableActivity="true" />
+    </application>
+</manifest>
